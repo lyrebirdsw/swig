@@ -133,7 +133,7 @@ mixin template SwigOperatorDefinitions() {
     if (auto rhs = cast(typeof(this))o) {
       if (swigCPtr == rhs.swigCPtr) return true;
       static if (is(typeof(swigOpEquals(rhs)))) {
-        return swigOpEquals(rhs);
+        return cast(bool)(swigOpEquals(rhs));
       } else {
         return false; 
       }
